@@ -1,24 +1,45 @@
 import logo from './logo.svg';
 import './App.css';
+import Todolist from './componets/Todolist';
+import { v4 as uuidv4 } from 'uuid';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { TodosContext } from './Contextes/TodosContext';
+import { useState } from 'react';
+import { ToastProvider } from './Contextes/ToastContext';
+const theme = createTheme({
+  typography: {},
+  palette: {
+    primary: {
+      main: "#004d40"
+    }
+  }
+});
+
+const intaileodo = [
+  {
+    id: uuidv4(),
+    title: "المهمه الاول",
+    detailes: "kkkkk",
+    iscompleted: false
+  }
+];
 
 function App() {
+  const [todos, settodos] = useState(intaileodo);
+
+
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <ToastProvider >
+      <div className="App" style={{ direction: "rtl", display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
+
+        <TodosContext.Provider value={{  todos , settodos }}>
+          <Todolist />
+        </TodosContext.Provider>
+      </div>
+      </ToastProvider>
+    </ThemeProvider>
   );
 }
 

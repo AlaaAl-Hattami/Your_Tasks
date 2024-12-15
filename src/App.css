@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.App-logo {
+  .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -22,17 +22,36 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  color:darkcyan;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
+ @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
+}
+
+ .icon-btn{
+  transition: all 0.5s !important;
+  color: rgba(7, 132, 90, 0.675);
+}
+.icon-btn:hover{
+  background-color: rgb(217, 212, 212) !important; 
+  box-shadow: 0 7px 5px rgba(0,0,0,0.4);
+}
+ .cardcon{
+  transition: all 0.3s  !important;
+}
+.cardcon:hover{
+ padding-top: 20px;
+ padding-bottom: 20px;
+ box-shadow: 0 7px 7px rgba(0,0,0,0.4);
+
 }
